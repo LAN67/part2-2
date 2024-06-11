@@ -19,7 +19,7 @@ public class Utils {
 class Cache2 implements InvocationHandler {
     Object obj;
     private boolean isChanged = true;
-    private double tmp = 0;
+    private Object tmp = null;
 
     public Cache2(Object obj) {
         this.obj = obj;
@@ -32,7 +32,7 @@ class Cache2 implements InvocationHandler {
         }
         if (method.isAnnotationPresent(Cache.class)) {
             if (isChanged) {
-                tmp = (double) method.invoke(obj, args);
+                tmp = method.invoke(obj, args);
                 isChanged = false;
             }
             return tmp;
