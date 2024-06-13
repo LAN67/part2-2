@@ -11,16 +11,19 @@ public class Fraction implements Fractionable{
         counttest = 0;
     }
 
+    @Mutator
     public void setNum(int num) {
         this.num = num;
         counttest = 0;
     }
 
+    @Mutator
     public void setDenum(int denum) {
         this.denum = denum;
         counttest = 0;
     }
 
+    @Cache
     public double doubleValue(){
         counttest++;
         return (double) num/denum;
